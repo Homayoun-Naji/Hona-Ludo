@@ -19,7 +19,23 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@/app/*": ["./app/*"],
+      "@/components/*": ["./components/*"],
+      "@/engine/*": ["./engine/*"],
+      "@/socket/*": ["./socket/*"],
+      "@/store/*": ["./store/*"],
+      "@/hooks/*": ["./hooks/*"],
+      "@/telegram/*": ["./telegram/*"],
+      "@/services/*": ["./services/*"],
+      "@/lib/*": ["./lib/*"],
+      "@/utils/*": ["./utils/*"],
+      "@/constants/*": ["./constants/*"],
+      "@/types/*": ["./types/*"],
+      "@/config/*": ["./config/*"],
+      "@/assets/*": ["./assets/*"],
+      "@/styles/*": ["./styles/*"],
+      "@/docs/*": ["./docs/*"]
     }
   },
   "include": [

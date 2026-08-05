@@ -463,15 +463,16 @@ The project must be built in defined phases. Each phase must have:
 
 **Phase List:**
 1. Foundation & Project Setup
-2. Design System & Core UI
-3. Telegram Mini App Integration
-4. Realtime Infrastructure (Rooms & Socket)
-5. Game Engine (Core Rules)
-6. Board Rendering & Piece Movement
-7. Gameplay Integration (Engine + UI + Socket)
-8. Match Flow & Room Management
-9. Polish, UX & Animations
-10. Testing, Optimization & Production Release
+2. Core Domain Design (Types, Models, State Machine, Game Data Structures)
+3. Design System & Core UI (Shadcn + Base UI + Design Tokens)
+4. Telegram Mini App Integration
+5. Realtime Infrastructure (Rooms & Socket)
+6. Game Engine (Core Rules)
+7. Board Rendering & Piece Movement
+8. Gameplay Integration (Engine + UI + Socket)
+9. Match Flow & Room Management
+10. Polish, UX & Animations
+11. Testing, Optimization & Production Release
 
 ---
 
