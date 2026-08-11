@@ -1,10 +1,25 @@
-import type { SOCKET_EVENTS } from "@/constants/events";
+import type { SocketEventName } from "@/constants/events";
 
 /**
  * Shared payload contract for every socket message.
  *
- * Implemented in Phase 5. Until then this type exists only so that
- * socket client/server/handler modules can reference a single,
- * centralized shape without guessing the wire format.
+ * Phase 5 (Realtime Infrastructure) will populate this record with a
+ * concrete payload type for each event name as the socket handlers are
+ * written. Until then every payload is typed as `unknown`, which forces
+ * handlers to narrow before use.
+ *
+ * Using `unknown` instead of `any` keeps the type system sound: a
+ * handler cannot accidentally access `.data` on an untyped payload
+ * without first asserting its shape.
  */
-export type SocketEventPayload = Partial<Record<keyof typeof SOCKET_EVENTS, unknown>>;
+export type SocketEventPayloadMap = Partial<Record<SocketEventName, unknown>>;
+
+/**
+ * Resolve the payload type for a given socket event name `K`.
+ * Returns `unknown` for any event that has not yet been mapped —
+ * which is exactly every event during Phase 1 & 2.
+ */
+export type SocketEventPayload<K extends SocketEventName> =
+  K extends keyof SocketEventPayloadMap ? SocketEventPayloadMap[K] : unknown;
+
+export type { SocketEventName };
