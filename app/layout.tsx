@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
 const iranYekan = localFont({
@@ -23,14 +24,33 @@ export const metadata: Metadata = {
   description: "بازی لودو ۵ نفره روی تلگرام",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  userScalable: false,
+  themeColor: "#0f172a",
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="fa"
       dir="rtl"
       className={`${iranYekan.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <TooltipProvider>
+          {/*
+             Max-width container for mobile. The game itself will
+             eventually fill the safe area, but for the UI shell we
+             constrain width so cards don't stretch across phablets.
+          */}
+          <div className="mx-auto w-full max-w-screen-sm px-3 py-3">
+            {children}
+          </div>
+        </TooltipProvider>
+      </body>
     </html>
   );
 }
