@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TelegramDebugPanel } from "@/components/telegram";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
           صفحه بازی
         </Link>
       </div>
+      <TelegramDebugPanel />
     </div>
   );
 }

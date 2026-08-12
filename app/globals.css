@@ -190,6 +190,23 @@
   --player-purple-foreground: hsl(0 0% 100%);
 }
 
+/*
+ * Telegram viewport sizing.
+ *
+ * The Mini App shell publishes the live Telegram viewport height as
+ * `--tg-viewport-height` on `<html>`. We use it as the floor for the
+ * app shell so the layout never overflows Telegram's chrome and
+ * never falls back to a `100vh` guess on mobile.
+ *
+ * Outside Telegram both variables are unset; the cascade falls back
+ * to the conventional `100dvh / 100vh` pair, which is correct for a
+ * normal browser.
+ */
+:root {
+  --tg-viewport-height: 100dvh;
+  --tg-viewport-stable-height: 100dvh;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

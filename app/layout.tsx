@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { TelegramShell } from "@/components/telegram";
 import "./globals.css";
 
 const iranYekan = localFont({
@@ -47,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
              constrain width so cards don't stretch across phablets.
           */}
           <div className="mx-auto w-full max-w-screen-sm px-3 py-3">
-            {children}
+            <TelegramShell>{children}</TelegramShell>
           </div>
         </TooltipProvider>
       </body>
